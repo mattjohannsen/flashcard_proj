@@ -1,11 +1,12 @@
 import React from 'react';
 import Stack from './Stack';
 
-export default function StackList() {
+export default function StackList({ stacks }) {
     return (
         <div>
-            <Stack />
-            <Stack />
+          {stacks.map(stack => {
+            return <Stack {...stack}/>
+        })}
         </div>
     )
 }
