@@ -3,7 +3,7 @@ import FlashcardList from './FlashcardList';
 import { StackContext } from './App';
 
 export default function Stack( props ) {
-    const { handleStackDelete } = useContext(StackContext);
+    const { handleStackDelete, handleStackSelect } = useContext(StackContext);
     const {
       id,  
       title,
@@ -15,7 +15,12 @@ export default function Stack( props ) {
         <div className="stack__header">
           <h3 className="stack__title">{title}</h3>
           <div>
-            <button className="btn btn--primary mr-1">Edit</button>
+            <button 
+              className="btn btn--primary mr-1"
+              onClick={() => handleStackSelect(id)}
+            >
+              Edit
+            </button>
             <button 
               className="btn btn--danger"
               onClick={()=> handleStackDelete(id)}

@@ -8,7 +8,10 @@ export const StackContext = React.createContext();
 const LOCAL_STORAGE_KEY = 'flashcar_project.stacks'
 
 function App() {
+  const [ selectedStackId, setSelectedStackId] = useState();
   const [stacks, setStacks] = useState(MattsTestCards);
+  const selectedStack = stacks.find(stack => stack.id === selectedStackId);
+  console.log(selectedStack);
 
   useEffect(() => {
     const stackJSON = localStorage.getItem(LOCAL_STORAGE_KEY)
@@ -21,7 +24,12 @@ function App() {
 
   const stackContextValue = {
 	handleStackAdd,
-	handleStackDelete
+	handleStackDelete,
+	handleStackSelect
+  }
+
+  function handleStackSelect(id) {
+	  setSelectedStackId(id)
   }
   
   function handleStackAdd() {
@@ -43,7 +51,7 @@ function App() {
     <div>
       <StackContext.Provider value={stackContextValue}>
 	    <StackList stacks={stacks} />
-		<StackEdit />
+		{selectedStack && <StackEdit stack={ selectedStack } />}
 	  </StackContext.Provider>
     </div>
   )
