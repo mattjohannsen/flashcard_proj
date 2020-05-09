@@ -33,8 +33,12 @@ export default function StackEdit({ stack }) {
           <div>Word</div>
           <div>Definition</div>
           <div></div>
-          <StackFlashcardEdit />
-          <StackFlashcardEdit />
+          {stack.cards.map(card => (
+          <StackFlashcardEdit
+            key={card.id}
+            card={card}
+          />
+        ))}
         </div>
         <div className="stack-edit__add-flashcard-btn-container">
           <button className="btn btn--primary">Add Flashcard</button>
