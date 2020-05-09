@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import FlashcardList from './FlashcardList';
 
 export default function Stack( props ) {
     const {
-        title
+        title,
+        cards
     } = props;
-    
+
     return (
       <div>
         <div>
@@ -15,8 +17,10 @@ export default function Stack( props ) {
           </div>
         </div>
         <div>
-          <span>FlashCards:</span>
-          <span>flashcards</span>
+          <span>Flashcards</span>
+          <div>
+            <FlashcardList flashcards={cards}/>
+          </div>
         </div>
       </div>
     )
