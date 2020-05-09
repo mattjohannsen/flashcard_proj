@@ -16,12 +16,17 @@ function App() {
 	}
 	setStacks([ ...stacks, newStack ])
   }  
-  
+
+  function handleStackDelete(id){
+    setStacks(stacks.filter(stack => stack.id !== id))
+  }
+
   return (
     <div>
       <StackList 
 	    stacks={stacks}
         handleStackAdd={handleStackAdd}
+		handleStackDelete={handleStackDelete}
 	  />
     </div>
   )

@@ -4,7 +4,8 @@ import Stack from './Stack';
 export default function StackList(props) {
   const {
     stacks,
-    handleStackAdd
+    handleStackAdd,
+    handleStackDelete
   } = props;
 
     return (
@@ -14,6 +15,7 @@ export default function StackList(props) {
               return (
                 <Stack 
                   key={stack.id} 
+                  handleStackDelete={handleStackDelete}
                   {...stack}
                 />
               )
