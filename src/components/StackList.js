@@ -3,7 +3,7 @@ import Stack from './Stack';
 
 export default function StackList({ stacks }) {
     return (
-        <>
+        <div className="stack-list">
           <div>
             {stacks.map(stack => {
               return (
@@ -14,7 +14,9 @@ export default function StackList({ stacks }) {
               )
             })}
           </div>
-          <button>Add Stack</button>
-        </>
+          <div className="stack-list__add-stack-btn-container">
+            <button className="btn btn--primary">Add Stack</button>
+          </div>
+        </div>
     )
 }
