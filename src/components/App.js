@@ -1,14 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import StackList from './StackList';
 import '../css/app.css';
+import {v4 as uuidv4} from 'uuid';
 
 function App() {
+  const [stacks, setStacks] = useState(MattsTestCards);
   return (
     <div>
-      <StackList stacks={MattsTestCards}/>
+      <StackList stacks={stacks}/>
     </div>
   )
+
+  function handleStackAdd() {
+	const newStack = {
+		id: uuidv4(),
+		title: 'New Stack',
+		cards: [
+			{ id: uuidv4(), word: 'word', definition: 'definition' }
+		]
+	}
+	setStacks([ ...stacks, newStack ])
 }
+}
+
+
 
 const MattsTestCards = [
  	{
