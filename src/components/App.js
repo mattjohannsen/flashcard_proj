@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import StackList from './StackList';
 import '../css/app.css';
 import {v4 as uuidv4} from 'uuid';
+import StackEdit from './StackEdit';
 
 export const StackContext = React.createContext();
 const LOCAL_STORAGE_KEY = 'flashcar_project.stacks'
@@ -41,11 +42,8 @@ function App() {
   return (
     <div>
       <StackContext.Provider value={stackContextValue}>
-	    <StackList 
-	      stacks={stacks}
-          handleStackAdd={handleStackAdd}
-		  handleStackDelete={handleStackDelete}
-	    />
+	    <StackList stacks={stacks} />
+		<StackEdit />
 	  </StackContext.Provider>
     </div>
   )

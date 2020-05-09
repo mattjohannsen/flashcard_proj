@@ -1,11 +1,14 @@
 @import-normalize;
 @import 'font.css';
+@import 'buttons.css';
 @import 'stack-list.css';
 @import 'stack.css';
-@import 'buttons.css';
+@import 'flashcard-list.css';
+@import 'stack-edit.css';
 
 *, *::before, *::after {
     font-family: Gotham Rounded, sans-serif;
+    box-sizing: border-box;
   }
 
   html {
