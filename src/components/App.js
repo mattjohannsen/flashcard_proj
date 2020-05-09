@@ -1,5 +1,6 @@
 import React from 'react';
 import StackList from './StackList';
+import '../css/app.css';
 
 function App() {
   return (
