@@ -1,3 +1,7 @@
 @import-normalize;
+@import 'font.css';
 @import 'stack-list.css';
 
+*, *::before, *::after {
+    font-family: Gotham Rounded, sans-serif;
+  }
