@@ -3,15 +3,18 @@ import Stack from './Stack';
 
 export default function StackList({ stacks }) {
     return (
-        <div>
-          {stacks.map(stack => {
-            return (
+        <>
+          <div>
+            {stacks.map(stack => {
+              return (
                 <Stack 
                   key={stack.id} 
                   {...stack}
                 />
-            )
-        })}
-        </div>
+              )
+            })}
+          </div>
+          <button>Add Stack</button>
+        </>
     )
 }
