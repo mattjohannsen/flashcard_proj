@@ -8,17 +8,17 @@ export default function Stack( props ) {
     } = props;
 
     return (
-      <div>
-        <div>
-          <h3>{title}</h3>
+      <div className="stack">
+        <div className="stack__header">
+          <h3 className="stack__title">{title}</h3>
           <div>
-            <button>Edit</button>
-            <button>Delete</button>
+            <button className="btn btn--primary mr-1">Edit</button>
+            <button className="btn btn--danger">Delete</button>
           </div>
         </div>
-        <div>
-          <span>Flashcards</span>
-          <div>
+        <div className="stack__row">
+          <span className="stack__label">Flashcards:</span>
+          <div className="stack__value stack__value--indented">
             <FlashcardList flashcards={cards}/>
           </div>
         </div>

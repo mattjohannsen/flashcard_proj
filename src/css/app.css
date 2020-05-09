@@ -1,6 +1,7 @@
 @import-normalize;
 @import 'font.css';
 @import 'stack-list.css';
+@import 'stack.css';
 @import 'buttons.css';
 
 *, *::before, *::after {
@@ -14,4 +15,8 @@
   body {
     padding: 0;
     margin: 0;
+  }
+
+  .mr-1 {
+    margin-right: 5px;
   }

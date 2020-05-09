@@ -1,0 +1,40 @@
+.stack {
+    padding: 20px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid black;
+}
+
+.stack:last-child {
+    border-bottom: none;
+    padding-bottom: 10px;
+}
+
+.stack__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.stack__title {
+    margin: 0;
+    font-size: 1.75rem;
+}
+  
+.stack__row {
+    margin-top: 10px;
+}
+  
+.stack__label {
+    margin-right: 5px;
+}
+
+.stack__value {
+    font-weight: 300;
+}
+
+.stack__value--indented {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+  
