@@ -4,24 +4,39 @@ import StackFlashcardEdit from './StackFlashcardEdit';
 export default function () {
     return (
       <div className="stack-edit">
-        <div>
-          <button>&times;</button>
+        <div className="stack-edit__remove-button-container">
+          <button className="btn stack-edit__remove-button">&times;</button>
         </div>
-        <div>
-          <label htmlFor="name">Title</label>
-          <input type="text" name="title" id="title" />
+        <div className="stack-edit__details-grid">
+          <label 
+            htmlFor="title" 
+            className="stack-edit__label"
+          >
+            Title
+          </label>
+          <input 
+            type="text" 
+            name="title" 
+            id="title" 
+            className="stack-edit__input"
+          />
         </div>
         <br />
-        <label>Flashcards</label>
-        <div>
+        <label
+            htmlFor="cards" 
+            className="stack-edit__label"
+        >
+          Flashcards
+        </label>
+        <div className="stack-edit__flashcard-grid">
           <div>Word</div>
           <div>Definition</div>
           <div></div>
           <StackFlashcardEdit />
           <StackFlashcardEdit />
         </div>
-        <div>
-          <button>Add Flashcard</button>
+        <div className="stack-edit__add-flashcard-btn-container">
+          <button className="btn btn--primary">Add Flashcard</button>
         </div>
       </div>        
     )

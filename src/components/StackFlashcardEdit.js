@@ -3,9 +3,9 @@ import React from 'react'
 export default function StackFlashcardEdit() {
     return (
       <>
-        <input type="text" />
-        <input type="text" />
-        <button>&times;</button>
+        <input className="stack-edit__input" type="text" />
+        <input className="stack-edit__input" type="text" />
+        <button className="btn btn--danger">&times;</button>
       </>
     )
 }
