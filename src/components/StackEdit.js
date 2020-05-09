@@ -1,7 +1,7 @@
 import React from 'react';
 import StackFlashcardEdit from './StackFlashcardEdit';
 
-export default function () {
+export default function StackEdit({ stack }) {
     return (
       <div className="stack-edit">
         <div className="stack-edit__remove-button-container">
@@ -18,6 +18,7 @@ export default function () {
             type="text" 
             name="title" 
             id="title" 
+            value={stack.title}
             className="stack-edit__input"
           />
         </div>
