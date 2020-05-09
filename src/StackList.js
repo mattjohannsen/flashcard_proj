@@ -5,7 +5,9 @@ export default function StackList({ stacks }) {
     return (
         <div>
           {stacks.map(stack => {
-            return <Stack {...stack}/>
+            return (
+                <Stack key={stack.id} {...stack}/>
+            )
         })}
         </div>
     )
