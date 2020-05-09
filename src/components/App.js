@@ -1,12 +1,22 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import StackList from './StackList';
 import '../css/app.css';
 import {v4 as uuidv4} from 'uuid';
 
 export const StackContext = React.createContext();
+const LOCAL_STORAGE_KEY = 'flashcar_project.stacks'
 
 function App() {
   const [stacks, setStacks] = useState(MattsTestCards);
+
+  useEffect(() => {
+    const stackJSON = localStorage.getItem(LOCAL_STORAGE_KEY)
+    if (stackJSON != null) setStacks(JSON.parse(stackJSON))
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(stacks))
+  }, [stacks])
 
   const stackContextValue = {
 	handleStackAdd,
@@ -31,11 +41,11 @@ function App() {
   return (
     <div>
       <StackContext.Provider value={stackContextValue}>
-	  <StackList 
-	    stacks={stacks}
-        handleStackAdd={handleStackAdd}
-		handleStackDelete={handleStackDelete}
-	  />
+	    <StackList 
+	      stacks={stacks}
+          handleStackAdd={handleStackAdd}
+		  handleStackDelete={handleStackDelete}
+	    />
 	  </StackContext.Provider>
     </div>
   )
