@@ -1,10 +1,14 @@
 import React from 'react'
 
-export default function Stack() {
+export default function Stack( props ) {
+    const {
+        title
+    } = props;
+    
     return (
       <div>
         <div>
-          <h3>Stack Title</h3>
+          <h3>{title}</h3>
           <div>
             <button>Edit</button>
             <button>Delete</button>
