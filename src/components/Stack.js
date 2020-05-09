@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import FlashcardList from './FlashcardList';
+import { StackContext } from './App';
 
 export default function Stack( props ) {
+    const { handleStackDelete } = useContext(StackContext);
     const {
       id,  
       title,
-      cards,
-      handleStackDelete
+      cards
     } = props;
 
     return (

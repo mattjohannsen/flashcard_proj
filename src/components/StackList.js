@@ -1,23 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Stack from './Stack';
+import { StackContext } from './App';
 
-export default function StackList(props) {
-  const {
-    stacks,
-    handleStackAdd,
-    handleStackDelete
-  } = props;
-
+export default function StackList({ stacks }) {
+  const { handleStackAdd } = useContext(StackContext)
     return (
         <div className="stack-list">
           <div>
             {stacks.map(stack => {
               return (
-                <Stack 
-                  key={stack.id} 
-                  handleStackDelete={handleStackDelete}
-                  {...stack}
-                />
+                <Stack key={stack.id} {...stack} />
               )
             })}
           </div>

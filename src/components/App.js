@@ -3,8 +3,15 @@ import StackList from './StackList';
 import '../css/app.css';
 import {v4 as uuidv4} from 'uuid';
 
+export const StackContext = React.createContext();
+
 function App() {
   const [stacks, setStacks] = useState(MattsTestCards);
+
+  const stackContextValue = {
+	handleStackAdd,
+	handleStackDelete
+  }
   
   function handleStackAdd() {
 	const newStack = {
@@ -23,11 +30,13 @@ function App() {
 
   return (
     <div>
-      <StackList 
+      <StackContext.Provider value={stackContextValue}>
+	  <StackList 
 	    stacks={stacks}
         handleStackAdd={handleStackAdd}
 		handleStackDelete={handleStackDelete}
 	  />
+	  </StackContext.Provider>
     </div>
   )
 }
