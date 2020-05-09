@@ -5,12 +5,7 @@ import {v4 as uuidv4} from 'uuid';
 
 function App() {
   const [stacks, setStacks] = useState(MattsTestCards);
-  return (
-    <div>
-      <StackList stacks={stacks}/>
-    </div>
-  )
-
+  
   function handleStackAdd() {
 	const newStack = {
 		id: uuidv4(),
@@ -20,7 +15,16 @@ function App() {
 		]
 	}
 	setStacks([ ...stacks, newStack ])
-}
+  }  
+  
+  return (
+    <div>
+      <StackList 
+	    stacks={stacks}
+        handleStackAdd={handleStackAdd}
+	  />
+    </div>
+  )
 }
 
 
