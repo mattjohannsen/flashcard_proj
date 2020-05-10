@@ -32,7 +32,7 @@ function App() {
   function handleStackSelect(id) {
 	  setSelectedStackId(id)
   }
-  
+
   function handleStackAdd() {
 	const newStack = {
 		id: uuidv4(),
@@ -41,7 +41,8 @@ function App() {
 			{ id: uuidv4(), word: 'word', definition: 'definition' }
 		]
 	}
-	setStacks([ ...stacks, newStack ])
+	setSelectedStackId(newStack.id);
+	setStacks([ ...stacks, newStack ]);
   }  
 
   function handleStackChange(id, stack) {
