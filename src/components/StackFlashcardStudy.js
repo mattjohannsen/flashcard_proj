@@ -1,35 +1,25 @@
-import React from 'react'
+import React, { useState }  from 'react'
 
 export default function StackFlashcardStudy(props) {
     const {
-      card, 
-      handleFlashCardChange,
-      handleFlashcardDelete
+      card
     } = props;
 
-    function handleChange(changes) {
-      handleFlashCardChange(card.id, { ...card, ...changes })
-    }
+    const [flip, setFlip] = useState(false)
+
+
     return (
-      <>
-        <input 
-          className="stack-edit__input" 
-          type="text" 
-          onChange={(e) => handleChange({ word: e.target.value })}
-          value={ card.word }
-        />
-        <input 
-          className="stack-edit__input" 
-          type="text" 
-          onChange={(e) => handleChange({ definition: e.target.value })}
-          value={ card.definition }
-        />
-        <button 
-          className="btn btn--danger"
-          onClick={() => handleFlashcardDelete(card.id)}
+        <div 
+          className="card"
+          onClick={() => setFlip(!flip)}
         >
-          &times;
-        </button>
-      </>
+        {/*           <div className="front">
+            {flashcard.definition}
+          </div>
+          <div className="back">
+            {flashcard.word}
+          </div>     */}      
+          {flip ? card.word : card.definition}
+        </div>
     )
 }

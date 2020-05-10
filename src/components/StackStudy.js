@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import StackFlashcardEdit from './StackFlashcardStudy';
+import StackFlashcardStudy from './StackFlashcardStudy';
 import { StackContext } from './App';
 import {v4 as uuidv4} from 'uuid';
 
@@ -49,14 +49,7 @@ export default function StackStudy({ stack }) {
           >
             Title
           </label>
-          <input 
-            type="text" 
-            name="title" 
-            id="title" 
-            value={stack.title}
-            onChange={e => handleChange({ title: e.target.value })}
-            className="stack-study__input"
-          />
+          <span>{stack.title}</span>
         </div>
         <br />
         <label
@@ -70,7 +63,7 @@ export default function StackStudy({ stack }) {
           <div>Definition</div>
           <div></div>
           {stack.cards.map(card => (
-          <StackFlashcardEdit
+          <StackFlashcardStudy
             key={card.id}
             handleFlashCardChange={handleFlashCardChange}
             handleFlashcardDelete={handleFlashcardDelete}
