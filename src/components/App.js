@@ -25,7 +25,8 @@ function App() {
   const stackContextValue = {
 	handleStackAdd,
 	handleStackDelete,
-	handleStackSelect
+	handleStackSelect,
+	handleStackChange
   }
 
   function handleStackSelect(id) {
@@ -42,6 +43,13 @@ function App() {
 	}
 	setStacks([ ...stacks, newStack ])
   }  
+
+  function handleStackChange(id, stack) {
+	  const newStacks = [ ...stacks ];
+	  const index = newStacks.findIndex(s => s.id === id);
+	  newStacks[index] = stack;
+	  setStacks(newStacks);
+  }
 
   function handleStackDelete(id){
     setStacks(stacks.filter(stack => stack.id !== id))

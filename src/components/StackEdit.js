@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import StackFlashcardEdit from './StackFlashcardEdit';
+import { StackContext } from './App';
 
 export default function StackEdit({ stack }) {
+    const { handleStackChange } = useContext(StackContext);
+
+    function handleChange(changes) {
+      handleStackChange(stack.id, { ...stack, ...changes })
+    }
+
+    function handleFlashCardChange(id, card) {
+      const newFlashcards = [...stack.cards]
+      const index = newFlashcards.findIndex(c => c.id === id)
+      newFlashcards[index] = card
+      handleChange({ cards: newFlashcards })
+    }
+
     return (
       <div className="stack-edit">
         <div className="stack-edit__remove-button-container">
@@ -19,6 +33,7 @@ export default function StackEdit({ stack }) {
             name="title" 
             id="title" 
             value={stack.title}
+            onInput={e => handleChange({ title: e.target.value })}
             className="stack-edit__input"
           />
         </div>
@@ -36,6 +51,7 @@ export default function StackEdit({ stack }) {
           {stack.cards.map(card => (
           <StackFlashcardEdit
             key={card.id}
+            handleFlashCardChange={handleFlashCardChange}
             card={card}
           />
         ))}
