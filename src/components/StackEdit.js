@@ -3,7 +3,7 @@ import StackFlashcardEdit from './StackFlashcardEdit';
 import { StackContext } from './App';
 
 export default function StackEdit({ stack }) {
-    const { handleStackChange } = useContext(StackContext);
+    const { handleStackChange, handleStackSelect } = useContext(StackContext);
 
     function handleChange(changes) {
       handleStackChange(stack.id, { ...stack, ...changes })
@@ -19,7 +19,12 @@ export default function StackEdit({ stack }) {
     return (
       <div className="stack-edit">
         <div className="stack-edit__remove-button-container">
-          <button className="btn stack-edit__remove-button">&times;</button>
+          <button 
+            className="btn stack-edit__remove-button"
+            onClick={()=> handleStackSelect(undefined)}
+          >
+            &times;
+          </button>
         </div>
         <div className="stack-edit__details-grid">
           <label 
