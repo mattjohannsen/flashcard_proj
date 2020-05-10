@@ -53,6 +53,9 @@ function App() {
   }
 
   function handleStackDelete(id){
+	if (selectedStackId != null && selectedStackId === id) {
+		setSelectedStackId(undefined)
+	  }
     setStacks(stacks.filter(stack => stack.id !== id))
   }
 

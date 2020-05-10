@@ -15,13 +15,13 @@ export default function StackFlashcardEdit(props) {
         <input 
           className="stack-edit__input" 
           type="text" 
-          onInput={(e) => handleChange({ word: e.target.value })}
+          onChange={(e) => handleChange({ word: e.target.value })}
           value={ card.word }
         />
         <input 
           className="stack-edit__input" 
           type="text" 
-          onInput={(e) => handleChange({ definition: e.target.value })}
+          onChange={(e) => handleChange({ definition: e.target.value })}
           value={ card.definition }
         />
         <button 

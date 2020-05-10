@@ -54,7 +54,7 @@ export default function StackEdit({ stack }) {
             name="title" 
             id="title" 
             value={stack.title}
-            onInput={e => handleChange({ title: e.target.value })}
+            onChange={e => handleChange({ title: e.target.value })}
             className="stack-edit__input"
           />
         </div>
