@@ -17,11 +17,13 @@ function App() {
   useEffect(() => {
     const stackJSON = localStorage.getItem(LOCAL_STORAGE_KEY)
     if (stackJSON != null) setStacks(JSON.parse(stackJSON))
-  }, [])
+  }, []);
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(stacks))
-  }, [stacks])
+  }, [stacks]);
+
+
 
   const stackContextValue = {
 	handleStackAdd,
