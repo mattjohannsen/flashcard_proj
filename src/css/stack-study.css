@@ -63,8 +63,12 @@
     position: relative;
     border-radius: .25rem;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
-    height: 150px;
+    height: auto;
     width: 400px;
     padding-left: 20px;
     padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    background: lightgrey;
   }
