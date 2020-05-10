@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import StackFlashcardEdit from './StackFlashcardEdit';
 import { StackContext } from './App';
+import {v4 as uuidv4} from 'uuid';
 
 export default function StackEdit({ stack }) {
     const { handleStackChange, handleStackSelect } = useContext(StackContext);
@@ -14,6 +15,21 @@ export default function StackEdit({ stack }) {
       const index = newFlashcards.findIndex(c => c.id === id)
       newFlashcards[index] = card
       handleChange({ cards: newFlashcards })
+    }
+
+    function handleFlashcardAdd() {
+      const newFlashcard = {
+        id: uuidv4(),
+        word: '',
+        definition: ''
+      }
+      handleChange({ cards: [ ...stack.cards, newFlashcard ]})
+    }
+
+    function handleFlashcardDelete(id) {
+      handleChange({
+        cards : stack.cards.filter(c => c.id !== id)
+      })
     }
 
     return (
@@ -57,12 +73,18 @@ export default function StackEdit({ stack }) {
           <StackFlashcardEdit
             key={card.id}
             handleFlashCardChange={handleFlashCardChange}
+            handleFlashcardDelete={handleFlashcardDelete}
             card={card}
           />
         ))}
         </div>
         <div className="stack-edit__add-flashcard-btn-container">
-          <button className="btn btn--primary">Add Flashcard</button>
+          <button 
+            className="btn btn--primary"
+            onClick={()=> handleFlashcardAdd()}
+          >
+            Add Flashcard
+          </button>
         </div>
       </div>        
     )

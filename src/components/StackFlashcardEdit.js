@@ -3,7 +3,8 @@ import React from 'react'
 export default function StackFlashcardEdit(props) {
     const {
       card, 
-      handleFlashCardChange
+      handleFlashCardChange,
+      handleFlashcardDelete
     } = props;
 
     function handleChange(changes) {
@@ -23,7 +24,12 @@ export default function StackFlashcardEdit(props) {
           onInput={(e) => handleChange({ definition: e.target.value })}
           value={ card.definition }
         />
-        <button className="btn btn--danger">&times;</button>
+        <button 
+          className="btn btn--danger"
+          onClick={() => handleFlashcardDelete(card.id)}
+        >
+          &times;
+        </button>
       </>
     )
 }
