@@ -2,6 +2,7 @@
     border-right: 1px solid black;
     min-height: 100vh;
     width: 50%;
+    padding-bottom: 30px;
   }
   
 .stack-list__add-recipe-btn-container {
