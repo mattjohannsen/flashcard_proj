@@ -5,6 +5,7 @@
 @import 'stack.css';
 @import 'flashcard-list.css';
 @import 'stack-edit.css';
+@import 'stack-study.css';
 
 *, *::before, *::after {
     font-family: Gotham Rounded, sans-serif;
