@@ -28,7 +28,7 @@
     column-gap: 40px;
   }
   
-  .stack-study__label {
+  .stack-study__header {
     font-weight: bold;
   }
   
@@ -49,14 +49,22 @@
     margin-left: 40px;
   }
   
-  .stack-study__add-flashcard-btn-container {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
   @media (max-width: 1000px) {
     .recipe-edit__details-grid,
     .recipe-edit__ingredient-grid {
       grid-template-columns: 1fr;
     }
+  }
+
+  .stack-study__card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: .25rem;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+    height: 150px;
+    width: 400px;
+    padding-left: 20px;
+    padding-right: 20px;
   }

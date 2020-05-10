@@ -42,42 +42,17 @@ export default function StackStudy({ stack }) {
             &times;
           </button>
         </div>
-        <div className="stack-study__details-grid">
-          <label 
-            htmlFor="title" 
-            className="stack-study__label"
-          >
-            Title
-          </label>
-          <span>{stack.title}</span>
+        <div className="stack-study__label">
+            {stack.title} - No. of cards: {stack.cards.length}
         </div>
         <br />
-        <label
-            htmlFor="cards" 
-            className="stack-study__label"
-        >
-          Flashcards
-        </label>
-        <div className="stack-study__flashcard-grid">
-          <div>Word</div>
-          <div>Definition</div>
-          <div></div>
+        <div>
           {stack.cards.map(card => (
           <StackFlashcardStudy
             key={card.id}
-            handleFlashCardChange={handleFlashCardChange}
-            handleFlashcardDelete={handleFlashcardDelete}
             card={card}
           />
         ))}
-        </div>
-        <div className="stack-study__add-flashcard-btn-container">
-          <button 
-            className="btn btn--primary"
-            onClick={()=> handleFlashcardAdd()}
-          >
-            Add Flashcard
-          </button>
         </div>
       </div>        
     )

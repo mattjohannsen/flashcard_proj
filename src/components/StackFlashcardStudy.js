@@ -10,7 +10,7 @@ export default function StackFlashcardStudy(props) {
 
     return (
         <div 
-          className="card"
+          className="stack-study__card"
           onClick={() => setFlip(!flip)}
         >
         {/*           <div className="front">
