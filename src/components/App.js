@@ -4,6 +4,7 @@ import '../css/app.css';
 import {v4 as uuidv4} from 'uuid';
 import StackEdit from './StackEdit';
 import StackStudy from './StackStudy';
+import axios from "axios";
 
 export const StackContext = React.createContext();
 const LOCAL_STORAGE_KEY = 'flashcar_project.stacks'
@@ -19,11 +20,26 @@ function App() {
     if (stackJSON != null) setStacks(JSON.parse(stackJSON))
   }, []);
 
+/*   useEffect(() => {
+    const stackJSON = axios
+      .get('https://localhost:44393/api/collection')
+      .then(res => {
+		console.log(res.data);
+		if (stackJSON != null) setStacks(JSON.parse(stackJSON))
+	  });
+  }, []); */
+
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(stacks))
   }, [stacks]);
 
 
+/*   const APIstacks = [];
+
+  APIstacks = function getAPIresults() {
+	axios.get('https://localhost:44393/api/collection').then(res => {
+		console.log(res);
+	}); */
 
   const stackContextValue = {
 	handleStackAdd,
