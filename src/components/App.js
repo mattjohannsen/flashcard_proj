@@ -11,7 +11,7 @@ export const StackContext = React.createContext();
 
 function App() {
   const [ selectedStackId, setSelectedStackId] = useState();
-  const [stacks, setStacks] = useState(MattsTestCards);
+  const [stacks, setStacks] = useState(sampleStackArray);
   const selectedStack = stacks.find(stack => stack.id === selectedStackId);
   console.log(selectedStack);
 
@@ -24,7 +24,7 @@ function App() {
   }); */
 
   useEffect(() => {
-    const APIstacks = axios
+    axios
       .get("https://localhost:44393/api/collection")
 	  .then(response => {
 		console.log(response.data)
@@ -71,7 +71,7 @@ function App() {
 
   function handleStackAdd() {
 	const newStack = {
-		id: uuidv4(),
+		id: 0,
 		title: 'New Stack',
 		cards: [
 			{ id: uuidv4(), word: 'word', definition: 'definition' }
@@ -79,6 +79,14 @@ function App() {
 	}
 	setSelectedStackId(newStack.id);
 	setStacks([ ...stacks, newStack ]);
+
+	axios.post('https://localhost:44393/api/stack', JSON.stringify(newStack), {headers: {'Content-Type': 'application/json',}})
+	  .then(function (response) {
+		console.log(response);
+	  })
+	  .catch(function (error) {
+		console.log(error);
+	  });
   }  
 
   function handleStackChange(id, stack) {
@@ -108,7 +116,7 @@ function App() {
 
 
 
-const MattsTestCards = [
+const sampleStackArray = [
  	{
  		"id":1,
  		"title":"React",
