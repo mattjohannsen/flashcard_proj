@@ -7,7 +7,7 @@ import StackStudy from './StackStudy';
 import axios from "axios";
 
 export const StackContext = React.createContext();
-const LOCAL_STORAGE_KEY = 'flashcar_project.stacks'
+// const LOCAL_STORAGE_KEY = 'flashcar_project.stacks';
 
 function App() {
   const [ selectedStackId, setSelectedStackId] = useState();
@@ -15,10 +15,27 @@ function App() {
   const selectedStack = stacks.find(stack => stack.id === selectedStackId);
   console.log(selectedStack);
 
+/*   useEffect(async () => {
+    const result = await axios(
+      'https://localhost:44393/api/collection',
+    );
+ 
+    setStacks(result.data); 
+  }); */
+
   useEffect(() => {
+    const APIstacks = axios
+      .get("https://localhost:44393/api/collection")
+	  .then(response => {
+		console.log(response.data)
+		setStacks(response.data)
+	  });
+  }, []);
+
+/*   useEffect(() => {
     const stackJSON = localStorage.getItem(LOCAL_STORAGE_KEY)
     if (stackJSON != null) setStacks(JSON.parse(stackJSON))
-  }, []);
+  }, []); */
 
 /*   useEffect(() => {
     const stackJSON = axios
@@ -29,9 +46,9 @@ function App() {
 	  });
   }, []); */
 
-  useEffect(() => {
+/*   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(stacks))
-  }, [stacks]);
+  }, [stacks]); */
 
 
 /*   const APIstacks = [];
